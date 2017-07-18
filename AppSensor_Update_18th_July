@@ -1,0 +1,66 @@
+Tasks Accomplished: 
+1. Installed scikit-learn version 0.18.2
+2. Found sample Apache web server logs here:
+   https://www.honeynet.org/node/456
+   http://log-sharing.dreamhosters.com
+   Description: The site contains various free shareable log samples from various systems, security and network devices,
+   applications, etc. The logs are collected from real systems, some contain evidence of compromise 
+   and other malicious activity. Wherever possible, the logs are NOT sanitized, anonymized or modified in any 
+   way (just as they came from the logging system)
+   License / permission to use: public; use for whatever you want.
+   
+   Downloaded and extracted a few Apache Access logs from the tar.gz files found here.
+   
+3. For data creation/mocking capability:
+   Found 'Faker', a Python library for generating fake apache web logs. 
+   https://github.com/kiritbasu/Fake-Apache-Log-Generator
+   Installed the requirements required for Faker using pip install:
+   fake-factory==0.7.2
+    numpy==1.11.2
+    Faker==0.7.3
+    pytz==2016.7
+    tzlocal==1.3.0
+    All except for 'Faker' got installed. While executing 'pip install Faker', I'm currently getting an error 
+    with respect to its dependency 'python-dateutil'. It requires version >= 2.4. Version 1.5 is already installed.
+    I'm not being able to uninstall it even after running it with root/sudo privilege.
+    
+    "Installing collected packages: python-dateutil, Faker
+    Found existing installation: python-dateutil 1.5
+    Uninstalling python-dateutil-1.5:"
+    "[Errno 1] Operation not permitted:/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/dateutil/*"
+    
+    Once this gets running, it is possible to generate logs after running the python script:
+    python apache-fake-log-gen.py -n 100 -o LOG (this generates 100 log lines to a file)
+    
+   
+  4. For the invalid authentication example, the status that the server would be returning is '401' for 
+     invalid authentication. Found a couple of example sample logs.
+     
+     x.x.x.90 - - [13/Sep/2006:07:01:53 -0700] "PROPFIND /svn/[xxxx]/Extranet/branches/SOW-101 HTTP/1.1" 401 587
+     x.x.x.90 - - [13/Sep/2006:07:01:51 -0700] "PROPFIND /svn/[xxxx]/[xxxx]/trunk HTTP/1.1" 401 587
+     x.x.x.90 - - [13/Sep/2006:07:00:53 -0700] "PROPFIND /svn/[xxxx]/[xxxx]/2.5 HTTP/1.1" 401 587
+     x.x.x.90 - - [13/Sep/2006:07:00:53 -0700] "PROPFIND /svn/[xxxx]/Extranet/branches/SOW-101 HTTP/1.1" 401 587
+     x.x.x.90 - - [13/Sep/2006:07:00:21 -0700] "PROPFIND /svn/[xxxx]/[xxxx]/trunk HTTP/1.1" 401 587
+     x.x.x.90 - - [13/Sep/2006:06:59:53 -0700] "PROPFIND /svn/[xxxx]/[xxxx]/2.5 HTTP/1.1" 401 587
+     x.x.x.90 - - [13/Sep/2006:06:59:50 -0700] "PROPFIND /svn/[xxxx]/[xxxx]/trunk HTTP/1.1" 401 587
+     x.x.x.90 - - [13/Sep/2006:06:58:52 -0700] "PROPFIND /svn/[xxxx]/[xxxx]/trunk HTTP/1.1" 401 587
+     x.x.x.90 - - [13/Sep/2006:06:58:52 -0700] "PROPFIND /svn/[xxxx]/Extranet/branches/SOW-101 HTTP/1.1" 401 587
+     
+     Here, the same client is making requests which are being denied due to invalid credentials over a period of 3 minutes.
+     Source here:
+     http://ossec-docs.readthedocs.io/en/latest/log_samples/apache/apache.html
+     
+     
+     Tasks to be completed:
+     1. Run scikit-learn algorithm on the above sample data for invalid auth by converting it to JSON first and using features
+        accordingly.
+     2. Get the Faker running so that we have mocking capability ready. (Blocked due to the error mentioned above currently).
+     
+     
+     
+
+    
+    
+    
+   
+   
