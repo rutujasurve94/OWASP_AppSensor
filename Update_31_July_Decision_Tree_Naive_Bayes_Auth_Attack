@@ -56,6 +56,21 @@ Most Informative Features
                date_diff = '0'              True : False  =      1.1 : 1.0
 None
 
+3rd Run:
+Printing accuracy with Naive Bayes:
+0.75
+Showing most informative features with Naive Bayes:
+Most Informative Features
+                  ip_1_1 = '0'              True : False  =      2.2 : 1.0
+                    ip_1 = '0'              True : False  =      1.7 : 1.0
+             date_diff_1 = '0'              True : False  =      1.6 : 1.0
+           response_type = '1'              True : False  =      1.4 : 1.0
+               byte_diff = '0'              True : False  =      1.4 : 1.0
+             byte_diff_1 = '0'              True : False  =      1.3 : 1.0
+         response_type_1 = '1'              True : False  =      1.2 : 1.0
+               date_diff = '0'              True : False  =      1.1 : 1.0
+None
+
 
 2. Decision Tree Classifier:
 Results:
@@ -87,3 +102,21 @@ if ip_1_1 == '0':
   if byte_diff_1 == '1': return False
 if ip_1_1 == '1': return False
 
+
+
+3rd Run:
+Printing accuracy with Decision Tree:
+0.625
+Printing pseudo code for depth 4:
+if ip_1_1 == '0': 
+  if response_type == '0': return False
+  if response_type == '1': 
+    if date_diff == '0': 
+      if byte_diff == '0': return True
+      if byte_diff == '1': return False
+    if date_diff == '1': return False
+if ip_1_1 == '1': return False
+
+The decision tree classifier, as expected, infers rules where an attack holds 'True' if ip_1_1 and ip_1 are 0 (all 3
+client ips are same), it was recorded on the same day, the response type is of type 4XX, response byte diff is less than
+100 bytes or so.
