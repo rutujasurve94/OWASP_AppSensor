@@ -15,6 +15,7 @@ response_type is '1' if the response is of type '4xx' (fail series) for both (x-
 response_type_1 is for similar comparison between (x+1) and (x).
 byte_diff is the difference between the response data in bytes for x and (x-1) rounded off to say 100bytes. It is '0' if 
 the difference is less than 100 and '1' if greater than 100. byte_diff_1 is for comparison between (x+1) and x.
+'True' indicates and attack or anomalous behaviour and 'False' indicates normal behaviour.
 
 Since labelling had to be done manually and data-pre-processing requires additional python coding, I created this data
 encompassing all permutations/combinations for the 4 numeric features we have, for around 45-50 entries in total:
