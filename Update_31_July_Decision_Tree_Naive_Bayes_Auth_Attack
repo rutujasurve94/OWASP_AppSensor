@@ -118,6 +118,22 @@ if ip_1_1 == '0':
     if date_diff == '1': return False
 if ip_1_1 == '1': return False
 
+
+4th Run:
+Printing accuracy with Decision Tree
+0.875
+Printing pseudo code for depth 4:
+if ip_1_1 == '0': 
+  if response_type == '0': return False
+  if response_type == '1': 
+    if date_diff_1 == '0': 
+      if byte_diff_1 == '0': return True
+      if byte_diff_1 == '1': return False
+    if date_diff_1 == '1': return False
+if ip_1_1 == '1': return False
+
+
+
 The decision tree classifier, as expected, infers rules where an attack holds 'True' if ip_1_1 and ip_1 are 0 (all 3
 client ips are same), it was recorded on the same day, the response type is of type 4XX, response byte diff is less than
 100 bytes or so.
