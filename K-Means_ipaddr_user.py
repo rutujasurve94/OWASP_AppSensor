@@ -17,8 +17,8 @@ def ClusterIndicesComp(clustNum, labels_array): #list comprehension
 
 
 
-X = np.array([[100, 1],  [111, 4], [001, 7],
-                [111, 5], [001, 8], [100, 2], [111,6],[100,3], [001,9]])
+X = np.array([[100, 1],  [010, 4], [001, 7],
+                [010, 5], [001, 8], [100, 2], [010,6],[100,3], [001,9]])
 
 kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
 print kmeans.labels_
